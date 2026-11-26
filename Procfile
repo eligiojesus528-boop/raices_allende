@@ -1,0 +1,1 @@
+web: gunicorn raices_allende.wsgi
