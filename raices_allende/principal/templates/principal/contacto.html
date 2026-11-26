@@ -1,0 +1,24 @@
+{% extends "principal/base.html" %}
+{% block titulo %}Contacto | Raíces Allende{% endblock %}
+
+{% block contenido %}
+<section id="contacto">
+<h2>Contacto</h2>
+
+<p><strong>¡Bienvenido al apartado de contacto de Raíces Allende!</strong></p>
+
+<p>Villa de Allende es un municipio lleno de historia, tradiciones y naturaleza, ubicado en el corazón del Estado de México. Un lugar donde las raíces y la cultura de nuestro pueblo se mantienen vivas a través de nuestras costumbres, artesanías y gente amable. Te invitamos a conocernos y ser parte de nuestra historia.</p>
+
+<p><strong>📍 Dirección:</strong> Palacio Municipal, Centro, Villa de Allende, Estado de México, C.P. 51200</p>
+
+<p><strong>📞 Teléfono:</strong> (726) 131 3242</p>
+
+<p><strong>📧 Correo:</strong> contacto@raicesallende.com</p>
+
+<p><strong>🗺️ Ubicación:</strong> 
+<a href="https://www.google.com/maps/search/?api=1&query=Villa+de+Allende+Estado+de+Mexico" target="_blank" class="boton">Ver en el mapa</a>
+</p>
+
+<a href="{% url 'principal:inicio' %}" class="boton">← Volver al inicio</a>
+</section>
+{% endblock %}

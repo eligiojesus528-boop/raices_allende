@@ -1,0 +1,55 @@
+{% extends 'principal/base.html' %}
+
+{% block titulo %}Raíces Allende - Inicio{% endblock %}
+
+{% block contenido %}
+
+  <section id="inicio">
+    <h2>Inicio</h2>
+    <p>Bienvenido a Raíces Allende, un espacio para conocer la cultura y tradición de Villa de Allende.</p>
+  </section>
+
+  <section id="historia">
+    <h2>Historia</h2>
+    <p>Villa de Allende conserva la memoria de sus orígenes y su gente.</p>
+    <p>Conocer la historia ayuda a valorar el origen de la comunidad.</p>
+    <a class="boton" href="{% url 'principal:historia' %}">Leer más →</a>
+  </section>
+
+  <section id="tradiciones">
+    <h2>Tradiciones</h2>
+    <p>Las fiestas comunitarias reúnen a las familias y fortalecen la identidad.</p>
+    <p>Estas costumbres se transmiten de generación en generación.</p>
+    <a class="boton" href="{% url 'principal:tradiciones' %}">Conocer tradiciones →</a>
+  </section>
+
+  <section id="lugares">
+    <h2>Lugares para conocer</h2>
+    <ul>
+      <li>Plazas y espacios de reunión de las comunidades</li>
+      <li>Parajes naturales y caminos de la región</li>
+      <li>Edificios y sitios que forman parte de la historia local</li>
+    </ul>
+    <a class="boton" href="{% url 'principal:lugares' %}">Ver lugares →</a>
+  </section>
+
+  <section id="gastronomia">
+    <h2>Gastronomía</h2>
+    <p>La cocina local representa la convivencia familiar y el sabor de casa.</p>
+    <p>Los platillos tradicionales forman parte importante de las fiestas.</p>
+    <a class="boton" href="{% url 'principal:gastronomia' %}">Conocer gastronomía →</a>
+  </section>
+
+  <section id="artesanias">
+    <h2>Artesanías y trabajo local</h2>
+    <p>Las artesanías muestran la creatividad y el conocimiento de los artesanos.</p>
+    <p>Apoyar el trabajo local ayuda a conservar estas expresiones culturales.</p>
+    <a class="boton" href="{% url 'principal:artesanias' %}">Ver artesanías →</a>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Quieres compartir una historia o conocer más sobre el proyecto?</p>
+    <a class="boton" href="{% url 'principal:contacto' %}">Ir a contacto</a>
+  </section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "principal/base.html" %}
+{% block titulo %}Historia | Raíces Allende{% endblock %}
+
+{% block contenido %}
+<h2>Historia de Villa de Allende</h2>
+
+<p>Villa de Allende es un municipio ubicado en el Estado de México con raíces que se remontan a la época prehispánica. Originalmente, este territorio fue habitado por el pueblo mazahua, quienes se establecieron en la zona aprovechando sus tierras fértiles y sus recursos naturales. Se dedicaban principalmente a la agricultura, la caza y la recolección, y desarrollaron una cultura rica en conocimientos, tradiciones y técnicas artesanales que han perdurado hasta la actualidad.</p>
+
+<p>Durante la época colonial, los misioneros españoles llegaron a la región y fundaron el asentamiento con el nombre de <strong>San José Malacatepec</strong>. Bajo la influencia española se construyeron templos y edificios de estilo colonial, entre ellos la Parroquia de San Miguel Arcángel, que sigue siendo el corazón del pueblo. A pesar de los cambios, la población local conservó su lengua, sus costumbres y su forma de entender el mundo, mezclando así tradiciones ancestrales con nuevas influencias.</p>
+
+<p>En el año <strong>1882</strong>, la localidad cambió su nombre a <strong>Villa de Allende</strong> en honor a Ignacio Allende, uno de los héroes de la Independencia de México. Con el paso de los años, el municipio creció como un centro agrícola y comercial importante de la zona, manteniendo siempre su esencia y su fuerte sentido comunitario.</p>
+
+<p>Hoy en día, Villa de Allende es reconocido por su gran riqueza cultural y natural. Sus tradiciones como la Danza de los Diablos, sus fiestas patronales, su gastronomía típica y sus artesanías, especialmente textiles y cerámica, son el orgullo de sus habitantes. Es un lugar donde el pasado y el presente conviven en armonía, y donde las familias siguen transmitiendo de generación en generación el cariño por sus raíces y su tierra.</p>
+
+<img src="/media/historia.jpg" alt="Historia de Villa de Allende" style="width:90%; max-width:900px; height:auto; display:block; margin:20px auto; border-radius:8px;">
+
+<a href="{% url 'principal:inicio' %}" class="volver">← Volver al inicio</a>
+{% endblock %}

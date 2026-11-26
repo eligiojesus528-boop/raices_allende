@@ -1,0 +1,36 @@
+{% extends "principal/base.html" %}
+{% block titulo %}Artesanías | Raíces Allende{% endblock %}
+
+{% block contenido %}
+
+<h2>Artesanías de Villa de Allende</h2>
+
+<div class="tarjetas">
+    {% for item in elementos %}
+    <article class="tarjeta">
+        {% if item.imagen %}
+        <img src="{{ item.imagen.url }}" alt="{{ item.nombre }}" class="imagen-tarjeta">
+        {% endif %}
+        <h3>{{ item.nombre }}</h3>
+        <p>{{ item.descripcion }}</p>
+    </article>
+    {% empty %}
+    <p>No hay registros de artesanías todavía.</p>
+    {% endfor %}
+</div>
+
+<!-- GALERÍA DE IMÁGENES -->
+<div style="margin-top: 40px;">
+    <h3>Galería de imágenes</h3>
+    <div class="tarjetas">
+        {% for foto in galeria_artesanias %}
+        <div class="tarjeta">
+            <img src="{{ foto.imagen.url }}" alt="{{ foto.titulo }}" class="imagen-tarjeta foto-galeria" onclick="abrirVisor(this.src, this)">
+            {% if foto.titulo %}<p>{{ foto.titulo }}</p>{% endif %}
+        </div>
+        {% empty %}
+        <p>No hay fotos en la galería todavía.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

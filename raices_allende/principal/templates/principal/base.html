@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block titulo %}Raíces Allende{% endblock %}</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+
+<header>
+  <h1>Raíces Allende</h1>
+  <p>Villa de Allende, cultura y tradición</p>
+  <nav>
+    <a href="{% url 'principal:inicio' %}#inicio">Inicio</a>
+    <a href="{% url 'principal:inicio' %}#historia">Historia</a>
+    <a href="{% url 'principal:inicio' %}#tradiciones">Tradiciones</a>
+    <a href="{% url 'principal:inicio' %}#lugares">Lugares</a>
+    <a href="{% url 'principal:inicio' %}#gastronomia">Gastronomía</a>
+    <a href="{% url 'principal:inicio' %}#artesanias">Artesanías</a>
+    <a href="{% url 'principal:contacto' %}">Contacto</a>
+    <a href="/admin/">Admin</a>
+  </nav>
+</header>
+
+<main>
+  {% block contenido %}{% endblock %}
+</main>
+
+<footer>
+  <p>Raíces Allende - Cultura y tradición</p>
+</footer>
+
+<!-- VISOR DE IMÁGENES EN PANTALLA COMPLETA -->
+
+
+<div class="visor-imagenes" id="visor">
+    <span class="cerrar-visor" onclick="cerrarVisor()">&times;</span>
+    <a class="anterior-img" onclick="imagenAnterior()">&#10094;</a>
+    <img id="imagen-grande" src="" alt="">
+    <a class="siguiente-img" onclick="imagenSiguiente()">&#10095;</a>
+    <div class="contador-img" id="contador-img"></div>
+</div>
+
+<script>
+let listaImagenes = [];
+let indiceActual = 0;
+
+function abrirVisor(imagenUrl, elemento) {
+    listaImagenes = [];
+    const todasLasFotos = document.querySelectorAll('.foto-galeria');
+    todasLasFotos.forEach((img, index) => {
+        listaImagenes.push(img.src);
+        if (img.src === imagenUrl) {
+            indiceActual = index;
+        }
+    });
+    mostrarImagen();
+    document.getElementById('visor').classList.add('activo');
+    document.body.style.overflow = 'hidden';
+}
+
+function cerrarVisor() {
+    document.getElementById('visor').classList.remove('activo');
+    document.body.style.overflow = 'auto';
+}
+
+function mostrarImagen() {
+    document.getElementById('imagen-grande').src = listaImagenes[indiceActual];
+    document.getElementById('contador-img').textContent = (indiceActual + 1) + ' / ' + listaImagenes.length;
+}
+
+function imagenAnterior() {
+    indiceActual = (indiceActual - 1 + listaImagenes.length) % listaImagenes.length;
+    mostrarImagen();
+}
+
+function imagenSiguiente() {
+    indiceActual = (indiceActual + 1) % listaImagenes.length;
+    mostrarImagen();
+}
+
+document.addEventListener('keydown', function(e) {
+    if (document.getElementById('visor').classList.contains('activo')) {
+        if (e.key === 'Escape') cerrarVisor();
+        if (e.key === 'ArrowLeft') imagenAnterior();
+        if (e.key === 'ArrowRight') imagenSiguiente();
+    }
+});
+</script>
+</body>
+</html>
